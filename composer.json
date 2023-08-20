@@ -3,6 +3,7 @@
   "description": "front controller examples",
   "type": "library",
   "license": "MIT",
+  "version": "0.1.4",
   "autoload": {
     "psr-4": {
       "FrontController\\": "src/"
