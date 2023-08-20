@@ -1,0 +1,31 @@
+{
+  "name": "juanvladimir13/frontcontroller",
+  "description": "front controller examples",
+  "type": "library",
+  "license": "MIT",
+  "autoload": {
+    "psr-4": {
+      "FrontController\\": "src/"
+    }
+  },
+  "authors": [
+    {
+      "name": "Juan Vladimir",
+      "email": "juanvladimir13@gmail.com"
+    }
+  ],
+  "minimum-stability": "dev",
+  "require": {
+    "php": ">=7.1"
+  },
+  "config": {
+    "optimize-autoloader": true,
+    "prepend-autoloader": false,
+    "platform": {
+      "php": "7.1"
+    }
+  },
+  "scripts": {
+    "phpstan": "phpstan analyse --xdebug -c phpstan.neon"
+  }
+}
