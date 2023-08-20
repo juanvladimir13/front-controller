@@ -9,18 +9,19 @@ declare(strict_types=1);
 
 namespace FrontController;
 
+use Psr\Http\Message\RequestInterface;
+
 class FrontController
 {
     private $dispatcher;
 
-    public function __construct(string $uri, string $method)
+    public function __construct(string $uri, string $httpRequestMethod)
     {
-        $this->dispatcher = new Dispatcher($uri, $method);
+        $this->dispatcher = new Dispatcher($uri, strtoupper($httpRequestMethod));
     }
 
-    public function dispatchRequest(string $pathResources): void
+    public function dispatchRequest(RequestInterface $request, array $routeResources)
     {
-        $resources = require $pathResources;
-        $this->dispatcher->dispatch($resources);
+        return $this->dispatcher->dispatch($request, $routeResources);
     }
 }
