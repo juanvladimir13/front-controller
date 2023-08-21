@@ -9,7 +9,8 @@ declare(strict_types=1);
 
 namespace FrontController;
 
-use Psr\Http\Message\RequestInterface;
+use Psr\Http\Message\ResponseInterface;
+use Psr\Http\Message\ServerRequestInterface;
 
 class FrontController
 {
@@ -20,7 +21,7 @@ class FrontController
         $this->dispatcher = new Dispatcher($uri, strtoupper($httpRequestMethod));
     }
 
-    public function dispatchRequest(RequestInterface $request, array $routeResources)
+    public function dispatchRequest(ServerRequestInterface $request, array $routeResources): ?ResponseInterface
     {
         return $this->dispatcher->dispatch($request, $routeResources);
     }
